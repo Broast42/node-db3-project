@@ -32,7 +32,7 @@
     ON o."EmployeeId" = e."Id";
 
 
--- Stretch problems from SQL Try Editor at W3Schools.com
+-- Stretch problems 
 
 -- Displays CategoryName and a new column called Count that shows how many products are in each category. Shows 8 records.
     SELECT c."CategoryName", COUNT(p."ProductID") "count"
@@ -40,3 +40,11 @@
     JOIN "Categories" AS c
     ON p."CategoryID" = c."CategoryID"
     GROUP BY c."CategoryID";
+
+-- Display OrderID and a column called ItemCount that shows the total number of products placed on the order. Shows 196 records.
+
+    SELECT o."OrderID", COUNT(od."ProductID") "ItemCount" 
+    FROM "Orders" AS o
+    JOIN "OrderDetails" AS od
+    ON o."OrderID" = od."OrderID"
+    GROUP BY o."OrderID";
